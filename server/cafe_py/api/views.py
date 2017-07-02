@@ -2,9 +2,11 @@ from django.shortcuts import render
 import json
 from collections import OrderedDict
 from temp.models import Temp
+from .forms import TempForm
 import decimal
 import datetime
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
@@ -21,6 +23,7 @@ def render_json_response(request, data, status=None):
         response = HttpResponse(json_str, content_type='application/javascript; charset=UTF-8', status=status)
     else:
         response = HttpResponse(json_str, content_type='application/json; charset=UTF-8', status=status)
+
     return response
 
 
@@ -36,6 +39,22 @@ def temp_list(request):
         temps.append(temp_dict)
     data = OrderedDict([('temps', temps)])
     return render_json_response(request, data)
+
+
+@csrf_exempt
+def temp_add(request, status=None):
+    """ 温度・湿度のPOSTを受け付ける """
+
+    temp = Temp()
+
+    if request.method == 'POST':
+        form = TempForm(request.POST, instance=temp)  # POST された request データからフォームを作成
+        if form.is_valid():    # フォームのバリデーション
+            temp = form.save(commit=False)
+            temp.save()
+            return HttpResponse('{"OK"}', content_type='application/json; charset=UTF-8', status=status)
+
+    return HttpResponse('{"fuck"}', content_type='application/json; charset=UTF-8', status=status)
 
 
 class DecimalEncoder(json.JSONEncoder):

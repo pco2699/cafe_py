@@ -1,5 +1,5 @@
 from django.contrib import admin
-from temp.models import Temp
+from .models import Temp
 
 # Register your models here.
 #admin.site.register(Temp)
