@@ -1,0 +1,7 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/
+sensor/.idea
+server/venv
+sensor/venv
+client/node_modules
+client/src
