@@ -6,6 +6,7 @@ import plotly.tools as tls
 from time import sleep
 import plotly.graph_objs as go
 import plotly.plotly as py
+import requests
 
 TEMP_HUMID_PORT = 7  # 温湿度を取得するポートはD7
 LOUDNESS_PORT = 0  # 騒音センサーを取得するポートはA0
@@ -79,6 +80,14 @@ class Plotly_writer:
         self.s2.close()
 
 
+class RequestToMyApi():
+    def __init__(self, request_url):
+        self.request_url = request_url
+
+
+
+
+
 def main():
     ply = Plotly_writer()
     ply.open_stream()
@@ -88,7 +97,7 @@ def main():
         loudness = grovepi.analogRead(LOUDNESS_PORT)
         light = grovepi.analogRead(LIGHT_PORT)
         air_cleaness = grovepi.analogRead(AIR_PORT)
-        # (temp, humid) = grovepi.dht(TEMP_HUMID_PORT)
+        (temp, humid) = grovepi.dht(TEMP_HUMID_PORT, 0)
 
         x = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
 
