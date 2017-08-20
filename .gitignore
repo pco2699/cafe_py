@@ -1,7 +1,10 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
-sensor/.idea
-server/venv
-sensor/venv
-client/node_modules
+venv
+__pycache__
+staticfiles
+local_settings.py
+db.sqlite3
+*.py[co]
+node_modules
 client/src
