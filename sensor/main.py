@@ -41,7 +41,7 @@ class Plotly_writer:
             y=[],
             mode='lines+markers',
             stream=self.stream_1,  # (!) embed stream id, 1 per trace
-            name="oudness"
+            name="loudness"
         )
 
         self.trace2 = go.Scatter(
@@ -80,9 +80,14 @@ class Plotly_writer:
         self.s2.close()
 
 
-class RequestToMyApi():
+class RequestToMyApi:
     def __init__(self, request_url):
         self.request_url = request_url
+
+    def executeRequest(self, **kwargs):
+        req = {}
+        for key, value in kwargs.iteritems():
+            print('key:{}, value:{}'.format(key, value))
 
 
 
