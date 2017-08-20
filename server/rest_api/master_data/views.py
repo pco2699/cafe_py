@@ -6,7 +6,7 @@ from django.shortcuts import render
 from rest_framework import viewsets, filters
 
 from .models import Place, Environment
-from .serializer import PlaceSerializer, EnviromentSerializer
+from .serializer import PlaceSerializer, EnvironmentSerializer
 
 
 class PlaceViewSet(viewsets.ModelViewSet):
@@ -14,6 +14,6 @@ class PlaceViewSet(viewsets.ModelViewSet):
     serializer_class = PlaceSerializer
 
 
-class EnviromentViewSet(viewsets.ModelViewSet):
+class EnvironmentViewSet(viewsets.ModelViewSet):
     queryset = Environment.objects.all()
-    serializer_class = EnviromentSerializer
+    serializer_class = EnvironmentSerializer

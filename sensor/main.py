@@ -7,6 +7,7 @@ from time import sleep
 import plotly.graph_objs as go
 import plotly.plotly as py
 import requests
+import json
 
 TEMP_HUMID_PORT = 7  # 温湿度を取得するポートはD7
 LOUDNESS_PORT = 0  # 騒音センサーを取得するポートはA0
@@ -80,33 +81,46 @@ class Plotly_writer:
         self.s2.close()
 
 
-class RequestToMyApi:
-    def __init__(self, request_url):
+class RequestToApi:
+    def __init__(self, request_url, **kwargs):
         self.request_url = request_url
-
-    def executeRequest(self, **kwargs):
-        req = {}
+        self.request_parameter = {}
         for key, value in kwargs.iteritems():
-            print('key:{}, value:{}'.format(key, value))
+            self.request_parameter[key] = value
+
+    def executeRequest(self):
+        result = requests.post(self.request_url, json=json.dumps(self.request_parameter))
 
 
-
+def getMAC(interface):
+    # Return the MAC address of interface
+    try:
+        mac_address = open('/sys/class/net/' + interface + '/address').read()
+    except:
+        mac_address = "00:00:00:00:00:00"
+    return mac_address[0:17]
 
 
 def main():
     ply = Plotly_writer()
     ply.open_stream()
 
+    mac_address = getMAC('wlan0')
+
     while True:
         # 各種センサー情報の取得
         loudness = grovepi.analogRead(LOUDNESS_PORT)
         light = grovepi.analogRead(LIGHT_PORT)
-        air_cleaness = grovepi.analogRead(AIR_PORT)
+        air_cleanness = grovepi.analogRead(AIR_PORT)
         (temp, humid) = grovepi.dht(TEMP_HUMID_PORT, 0)
 
-        x = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
+        now_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
 
-        ply.write_stream(x=x, loudness=loudness, light=light)
+        ply.write_stream(x=now_time, loudness=loudness, light=light)
+
+        req = RequestToApi('http://KS-MACBOOK-PRO.local', sensor_mac_address=mac_address, loudness=loudness,
+                           light=light, air_cleaness=air_cleanness, temp=temp, humid=humid)
+        req.executeRequest()
 
         sleep(1)
 

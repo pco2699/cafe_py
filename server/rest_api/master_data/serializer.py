@@ -11,7 +11,7 @@ class PlaceSerializer(serializers.ModelSerializer):
         fields = ('name', 'address', 'sensor_mac_address')
 
 
-class EnviromentSerializer(serializers.ModelSerializer):
+class EnvironmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Environment
         fields = ('place', 'time', 'temp', 'humid', 'light', 'loudness')
