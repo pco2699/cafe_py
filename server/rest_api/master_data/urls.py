@@ -2,7 +2,7 @@
 
 from .views import place_list
 from django.conf.urls import url
+from rest_framework import routers
 
-urlpatterns = [
-    url(r'^places/$', place_list)
-]
+router = routers.DefaultRouter()
+router.register(r'places', place_list)

@@ -11,7 +11,9 @@ from rest_framework.parsers import JSONParser
 from django.http import HttpResponse, JsonResponse
 
 from .models import Place, Environment
-from .serializer import PlaceSerializer, EnvironmentSerializer
+# from .serializer import PlaceSerializer, EnvironmentSerializer
+from .serializer import PlaceSerializer
+
 
 @csrf_exempt
 def place_list(request):

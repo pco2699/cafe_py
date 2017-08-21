@@ -90,6 +90,7 @@ class RequestToApi:
 
     def execute_request(self):
         result = requests.post(self.request_url, json=json.dumps(self.request_parameter))
+        print(result)
 
 
 def get_mac(interface):
@@ -107,7 +108,7 @@ def main():
 
     mac_address = get_mac('wlan0')
 
-    print("starting to post to the api...")
+    print("starting post to the api...")
 
     while True:
         print("fetching data from sensor...")
@@ -125,7 +126,6 @@ def main():
                            light=light, air_cleaness=air_cleanness, temp=temp, humid=humid)
         req.execute_request()
 
-        print("fetching data from sensor...")
         sleep(1)
 
 

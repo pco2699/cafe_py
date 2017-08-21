@@ -11,7 +11,7 @@ class PlaceSerializer(serializers.ModelSerializer):
         fields = ('id', 'name')
 
 
-class EnvironmentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Environment
-        fields = ()
+# class EnvironmentSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Environment
+#         fields = ()
