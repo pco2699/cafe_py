@@ -1,9 +1,8 @@
 # coding: utf-8
 
-from rest_framework import routers
-from .views import EnvironmentViewSet, PlaceViewSet
+from .views import place_list
+from django.conf.urls import url
 
-
-router = routers.DefaultRouter()
-router.register(r'environments', EnvironmentViewSet)
-router.register(r'places', PlaceViewSet)
+urlpatterns = [
+    url(r'^places/$', place_list)
+]

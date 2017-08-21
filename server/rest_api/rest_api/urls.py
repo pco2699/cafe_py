@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from master_data.urls import router as md_router
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/', include(md_router.urls)),
+    url(r'^api/', include('master_data.urls')),
 ]

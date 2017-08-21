@@ -88,11 +88,11 @@ class RequestToApi:
         for key, value in kwargs.iteritems():
             self.request_parameter[key] = value
 
-    def executeRequest(self):
+    def execute_request(self):
         result = requests.post(self.request_url, json=json.dumps(self.request_parameter))
 
 
-def getMAC(interface):
+def get_mac(interface):
     # Return the MAC address of interface
     try:
         mac_address = open('/sys/class/net/' + interface + '/address').read()
@@ -105,7 +105,7 @@ def main():
     ply = Plotly_writer()
     ply.open_stream()
 
-    mac_address = getMAC('wlan0')
+    mac_address = get_mac('wlan0')
 
     while True:
         # 各種センサー情報の取得
@@ -120,7 +120,7 @@ def main():
 
         req = RequestToApi('http://KS-MACBOOK-PRO.local', sensor_mac_address=mac_address, loudness=loudness,
                            light=light, air_cleaness=air_cleanness, temp=temp, humid=humid)
-        req.executeRequest()
+        req.execute_request()
 
         sleep(1)
 
