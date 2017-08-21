@@ -107,7 +107,10 @@ def main():
 
     mac_address = get_mac('wlan0')
 
+    print("starting to post to the api...")
+
     while True:
+        print("fetching data from sensor...")
         # 各種センサー情報の取得
         loudness = grovepi.analogRead(LOUDNESS_PORT)
         light = grovepi.analogRead(LIGHT_PORT)
@@ -122,6 +125,7 @@ def main():
                            light=light, air_cleaness=air_cleanness, temp=temp, humid=humid)
         req.execute_request()
 
+        print("fetching data from sensor...")
         sleep(1)
 
 

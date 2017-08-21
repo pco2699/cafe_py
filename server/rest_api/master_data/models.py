@@ -6,8 +6,8 @@ from django.db import models
 class Place(models.Model):
     name = models.CharField(max_length=32)
     address = models.CharField(max_length=100)
-    long = models.DecimalField(max_digits=9, decimal_places=3, null=True)
-    lat = models.DecimalField(max_digits=9, decimal_places=3, null=True)
+    long = models.DecimalField(max_digits=9, decimal_places=6, null=True)
+    lat = models.DecimalField(max_digits=9, decimal_places=6, null=True)
     sensor_mac_address = models.CharField(max_length=17, unique=True, blank=True)
     has_wifi = models.NullBooleanField()
     has_power = models.NullBooleanField()
