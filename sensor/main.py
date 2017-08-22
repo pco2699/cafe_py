@@ -122,8 +122,8 @@ def main():
 
         ply.write_stream(x=now_time, loudness=loudness, light=light)
 
-        req = RequestToApi('http://KS-MACBOOK-PRO.local', sensor_mac_address=mac_address, loudness=loudness,
-                           light=light, air_cleaness=air_cleanness, temp=temp, humid=humid)
+        req = RequestToApi('http://KS-MACBOOK-PRO.local', time=now_time, place=mac_address, loudness=loudness,
+                           light=light, air_cleanness=air_cleanness, temp=temp, humid=humid)
         req.execute_request()
 
         sleep(1)

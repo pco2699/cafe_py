@@ -12,6 +12,6 @@ class PlaceSerializer(serializers.ModelSerializer):
 
 
 class EnvironmentSerializer(serializers.ModelSerializer):
-     class Meta:
-         model = Environment
-         fields = ('id', 'place')
+    class Meta:
+        model = Environment
+        fields = ('id', 'place', 'time', 'temp', 'humid', 'light', 'loudness', 'air_cleanness')
