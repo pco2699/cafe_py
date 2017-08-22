@@ -83,6 +83,7 @@ class Plotly_writer:
 
 class RequestToApi:
     def __init__(self, request_url, **kwargs):
+        print(request_url)
         self.request_url = request_url
         self.request_parameter = {}
         for key, value in kwargs.iteritems():
@@ -90,7 +91,7 @@ class RequestToApi:
 
     def execute_request(self):
         result = requests.post(self.request_url, data=json.dumps(self.request_parameter))
-        print(result)
+        print(result.text)
 
 
 def get_mac(interface):
