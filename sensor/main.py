@@ -89,7 +89,7 @@ class RequestToApi:
             self.request_parameter[key] = value
 
     def execute_request(self):
-        result = requests.post(self.request_url, json=json.dumps(self.request_parameter))
+        result = requests.post(self.request_url, data=json.dumps(self.request_parameter))
         print(result)
 
 
@@ -118,7 +118,7 @@ def main():
         air_cleanness = grovepi.analogRead(AIR_PORT)
         (temp, humid) = grovepi.dht(TEMP_HUMID_PORT, 0)
 
-        now_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
+        now_time = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ')
 
         ply.write_stream(x=now_time, loudness=loudness, light=light)
 
