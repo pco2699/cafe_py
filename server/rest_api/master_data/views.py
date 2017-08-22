@@ -11,13 +11,12 @@ from rest_framework.parsers import JSONParser
 from django.http import HttpResponse, JsonResponse
 
 from .models import Place, Environment
-# from .serializer import PlaceSerializer, EnvironmentSerializer
-from .serializer import PlaceSerializer
+from .serializer import PlaceSerializer, EnvironmentSerializer
 
+class PlaceViewSet(viewsets.ModelViewSet):
+    queryset = Place.objects.all()
+    serializer_class = PlaceSerializer
 
-@csrf_exempt
-def place_list(request):
-    if request.method == 'GET':
-        snippets = Place.objects.all()
-        serializer = PlaceSerializer(snippets, many=True)
-        return JsonResponse(serializer.data, safe=False)
+class EnvironmentViewSet(viewsets.ModelViewSet):
+    queryset = Environment.objects.all()
+    serializer_class = Environment
