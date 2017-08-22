@@ -123,7 +123,7 @@ def main():
 
         ply.write_stream(x=now_time, loudness=loudness, light=light)
 
-        req = RequestToApi('http://KS-MACBOOK-PRO.local', time=now_time, place=mac_address, loudness=loudness,
+        req = RequestToApi('http://KS-MACBOOK-PRO.local/api/environments/', time=now_time, place=mac_address, loudness=loudness,
                            light=light, air_cleanness=air_cleanness, temp=temp, humid=humid)
         req.execute_request()
 
