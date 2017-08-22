@@ -104,8 +104,8 @@ def get_mac(interface):
 
 
 def main():
-    ply = Plotly_writer()
-    ply.open_stream()
+    # ply = Plotly_writer()
+    # ply.open_stream()
 
     mac_address = get_mac('wlan0')
 
@@ -121,9 +121,9 @@ def main():
 
         now_time = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ')
 
-        ply.write_stream(x=now_time, loudness=loudness, light=light)
+        # ply.write_stream(x=now_time, loudness=loudness, light=light)
 
-        req = RequestToApi('http://KS-MACBOOK-PRO.local/api/environments/', time=now_time, place=mac_address, loudness=loudness,
+        req = RequestToApi('http://KS-MACBOOK-PRO.local:8000/api/environments/', time=now_time, place=mac_address, loudness=loudness,
                            light=light, air_cleanness=air_cleanness, temp=temp, humid=humid)
         req.execute_request()
 
