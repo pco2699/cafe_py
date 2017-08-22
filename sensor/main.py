@@ -90,7 +90,8 @@ class RequestToApi:
             self.request_parameter[key] = value
 
     def execute_request(self):
-        result = requests.post(self.request_url, data=json.dumps(self.request_parameter))
+        result = requests.post(self.request_url, data=json.dumps(self.request_parameter),
+                               headers={'Content-Type': 'application/json'})
         print(result.text)
 
 
