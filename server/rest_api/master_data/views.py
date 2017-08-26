@@ -13,10 +13,12 @@ from django.http import HttpResponse, JsonResponse
 from .models import Place, Environment
 from .serializer import PlaceSerializer, EnvironmentSerializer
 
+
 class PlaceViewSet(viewsets.ModelViewSet):
     queryset = Place.objects.all()
     serializer_class = PlaceSerializer
 
+
 class EnvironmentViewSet(viewsets.ModelViewSet):
     queryset = Environment.objects.all()
-    serializer_class = Environment
+    serializer_class = EnvironmentSerializer

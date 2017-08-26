@@ -83,14 +83,16 @@ class Plotly_writer:
 
 class RequestToApi:
     def __init__(self, request_url, **kwargs):
+        print(request_url)
         self.request_url = request_url
         self.request_parameter = {}
         for key, value in kwargs.iteritems():
             self.request_parameter[key] = value
 
     def execute_request(self):
-        result = requests.post(self.request_url, json=json.dumps(self.request_parameter))
-        print(result)
+        result = requests.post(self.request_url, data=json.dumps(self.request_parameter),
+                               headers={'Content-Type': 'application/json'})
+        print(result.text)
 
 
 def get_mac(interface):
@@ -103,8 +105,8 @@ def get_mac(interface):
 
 
 def main():
-    ply = Plotly_writer()
-    ply.open_stream()
+    # ply = Plotly_writer()
+    # ply.open_stream()
 
     mac_address = get_mac('wlan0')
 
@@ -118,12 +120,12 @@ def main():
         air_cleanness = grovepi.analogRead(AIR_PORT)
         (temp, humid) = grovepi.dht(TEMP_HUMID_PORT, 0)
 
-        now_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
+        now_time = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ')
 
-        ply.write_stream(x=now_time, loudness=loudness, light=light)
+        # ply.write_stream(x=now_time, loudness=loudness, light=light)
 
-        req = RequestToApi('http://KS-MACBOOK-PRO.local', sensor_mac_address=mac_address, loudness=loudness,
-                           light=light, air_cleaness=air_cleanness, temp=temp, humid=humid)
+        req = RequestToApi('http://KS-MACBOOK-PRO.local:8000/api/environments/', time=now_time, place=mac_address, loudness=loudness,
+                           light=light, air_cleanness=air_cleanness, temp=temp, humid=humid)
         req.execute_request()
 
         sleep(1)
