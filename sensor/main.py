@@ -119,7 +119,7 @@ def main():
         light = grovepi.analogRead(LIGHT_PORT)
         air_cleanness = grovepi.analogRead(AIR_PORT)
         (temp, humid) = grovepi.dht(TEMP_HUMID_PORT, 0)
-        print('air_cleanness : ' + air_cleanness)
+        print('air_cleanness : ' + str(air_cleanness))
 
         now_time = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ')
 
