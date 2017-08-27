@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*p=3y6^a^%t)4k=r0^^aa+(3qjz@3$folybi2rnv$*uv5#5gq7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ['DEBUG']
 
 ALLOWED_HOSTS = ['ks-macbook-pro.local','127.0.0.1', 'anaba-works.herokuapp.com']
 
