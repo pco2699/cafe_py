@@ -119,12 +119,13 @@ def main():
         light = grovepi.analogRead(LIGHT_PORT)
         air_cleanness = grovepi.analogRead(AIR_PORT)
         (temp, humid) = grovepi.dht(TEMP_HUMID_PORT, 0)
+        print('air_cleanness : ' + air_cleanness)
 
         now_time = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ')
 
         # ply.write_stream(x=now_time, loudness=loudness, light=light)
 
-        req = RequestToApi('http://KS-MACBOOK-PRO.local:8000/api/environments/', time=now_time, place=mac_address, loudness=loudness,
+        req = RequestToApi('https://anaba-works.herokuapp.com/api/environments/', time=now_time, place=mac_address, loudness=loudness,
                            light=light, air_cleanness=air_cleanness, temp=temp, humid=humid)
         req.execute_request()
 
