@@ -19,9 +19,9 @@ class Environment(models.Model):
     time = models.DateTimeField()
     temp = models.DecimalField(max_digits=4, decimal_places=2)
     humid = models.DecimalField(max_digits=4, decimal_places=2)
-    light = models.DecimalField(max_digits=3, decimal_places=2)
-    loudness = models.DecimalField(max_digits=3, decimal_places=2)
-    air_cleanness = models.DecimalField(max_digits=3, decimal_places=2, default=0)
+    light = models.IntegerField()
+    loudness = models.IntegerField()
+    air_cleanness = models.IntegerField()
 
     class Meta:
         unique_together = (("place", "time"),)
