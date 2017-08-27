@@ -92,7 +92,7 @@ class RequestToApi:
     def execute_request(self):
         result = requests.post(self.request_url, data=json.dumps(self.request_parameter),
                                headers={'Content-Type': 'application/json'})
-        print(result.text)
+        print(result.text.decode('utf-8'))
 
 
 def get_mac(interface):
