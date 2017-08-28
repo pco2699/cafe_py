@@ -129,7 +129,7 @@ def main():
                            light=light, air_cleanness=air_cleanness, temp=temp, humid=humid)
         req.execute_request()
 
-        sleep(1)
+        sleep(600)
 
 
 if __name__ == '__main__':
