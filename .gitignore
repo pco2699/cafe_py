@@ -9,3 +9,5 @@ db.sqlite3
 *.py[co]
 node_modules
 client/src
+.DS_Store
+Carthage/

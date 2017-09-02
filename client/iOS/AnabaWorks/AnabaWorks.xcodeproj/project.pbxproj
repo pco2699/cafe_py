@@ -13,8 +13,10 @@
 		73F3F0211F545EC6009AFA5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73F3F01F1F545EC6009AFA5F /* Main.storyboard */; };
 		73F3F0231F545EC6009AFA5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73F3F0221F545EC6009AFA5F /* Assets.xcassets */; };
 		73F3F0261F545EC6009AFA5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73F3F0241F545EC6009AFA5F /* LaunchScreen.storyboard */; };
-		73F3F0351F54640C009AFA5F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F3F0331F54640C009AFA5F /* SwiftyJSON.framework */; };
-		73F3F0361F54640C009AFA5F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F3F0341F54640C009AFA5F /* Alamofire.framework */; };
+		73F3F0391F5467A6009AFA5F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F3F0371F5467A6009AFA5F /* SwiftyJSON.framework */; };
+		73F3F03A1F5467A6009AFA5F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F3F0381F5467A6009AFA5F /* Alamofire.framework */; };
+		73F3F03D1F5A678A009AFA5F /* MyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3F03C1F5A678A009AFA5F /* MyAnnotation.swift */; };
+		73F3F03F1F5A6C7C009AFA5F /* MyAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3F03E1F5A6C7C009AFA5F /* MyAnnotationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +28,10 @@
 		73F3F0221F545EC6009AFA5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73F3F0251F545EC6009AFA5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73F3F0271F545EC6009AFA5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		73F3F0331F54640C009AFA5F /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
-		73F3F0341F54640C009AFA5F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		73F3F0371F5467A6009AFA5F /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		73F3F0381F5467A6009AFA5F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		73F3F03C1F5A678A009AFA5F /* MyAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAnnotation.swift; sourceTree = "<group>"; };
+		73F3F03E1F5A6C7C009AFA5F /* MyAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAnnotationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,8 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73F3F0351F54640C009AFA5F /* SwiftyJSON.framework in Frameworks */,
-				73F3F0361F54640C009AFA5F /* Alamofire.framework in Frameworks */,
+				73F3F0391F5467A6009AFA5F /* SwiftyJSON.framework in Frameworks */,
+				73F3F03A1F5467A6009AFA5F /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +67,7 @@
 		73F3F0181F545EC6009AFA5F /* AnabaWorks */ = {
 			isa = PBXGroup;
 			children = (
+				73F3F03B1F5A65F2009AFA5F /* Model */,
 				73F3F0191F545EC6009AFA5F /* AppDelegate.swift */,
 				73F3F01B1F545EC6009AFA5F /* FirstViewController.swift */,
 				73F3F01D1F545EC6009AFA5F /* SecondViewController.swift */,
@@ -77,10 +82,19 @@
 		73F3F02D1F5462F5009AFA5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				73F3F0331F54640C009AFA5F /* SwiftyJSON.framework */,
-				73F3F0341F54640C009AFA5F /* Alamofire.framework */,
+				73F3F0371F5467A6009AFA5F /* SwiftyJSON.framework */,
+				73F3F0381F5467A6009AFA5F /* Alamofire.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		73F3F03B1F5A65F2009AFA5F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				73F3F03C1F5A678A009AFA5F /* MyAnnotation.swift */,
+				73F3F03E1F5A6C7C009AFA5F /* MyAnnotationView.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +191,8 @@
 			files = (
 				73F3F01E1F545EC6009AFA5F /* SecondViewController.swift in Sources */,
 				73F3F01A1F545EC6009AFA5F /* AppDelegate.swift in Sources */,
+				73F3F03F1F5A6C7C009AFA5F /* MyAnnotationView.swift in Sources */,
+				73F3F03D1F5A678A009AFA5F /* MyAnnotation.swift in Sources */,
 				73F3F01C1F545EC6009AFA5F /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -26,6 +26,8 @@ class FirstViewController: UIViewController, UITextFieldDelegate, MKMapViewDeleg
     mapview.delegate = self
     
     setupLocationManager()
+    
+    getLocation()
   }
   
   func setupLocationManager() {
@@ -54,31 +56,28 @@ class FirstViewController: UIViewController, UITextFieldDelegate, MKMapViewDeleg
       // 画面上のタッチした座標を取得
       let tapPoint = sender.location(in: mapview)
       // タッチした座標からマップ上の緯度経度を取得
-      let location = mapview.convert(tapPoint, toCoordinateFrom: mapview)
+      _ = mapview.convert(tapPoint, toCoordinateFrom: mapview)
       
       self.mapview.removeOverlays(mapview.overlays)
       self.mapview.removeAnnotations(mapview.annotations)
       
-      getGurunabi(location)
+      // getLocation(location)
     }
   }
   
-  func getGurunabi(_ loc: CLLocationCoordinate2D) {
+  func getLocation() {
     let url = "https://anaba-works.herokuapp.com/api/places/"
     Alamofire.request(url)
       .responseJSON(completionHandler: { response in
         let json = JSON(response.result.value ?? "empty")
         json.forEach{(_, data) in
-          let pin = MKPointAnnotation()
-          
-          pin.coordinate = CLLocationCoordinate2D(latitude: Double(data["lat"].string!)!, longitude: Double(data["long"].string!)!)
-          pin.title = data["name"].string!
-          pin.subtitle = data["address"].string!
+          print(data["has_wifi"])
+          let cordinate = CLLocationCoordinate2D(latitude: Double(data["lat"].string!)!, longitude: Double(data["long"].string!)!)
+          let pin = MyAnnotation(sensor: true, coord: cordinate)
           
           self.mapview.addAnnotation(pin)
           
         }
-        
       })
   }
   
@@ -87,19 +86,14 @@ class FirstViewController: UIViewController, UITextFieldDelegate, MKMapViewDeleg
       return nil
     }
     let reuseId = "pin"
-    var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+    var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MyAnnotationView
     if pinView == nil {
-      pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-      pinView?.animatesDrop = true
+      pinView = MyAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+//      pinView?.animatesDrop = true
     }
     else {
       pinView?.annotation = annotation
     }
-    
-    pinView?.canShowCallout = true
-    
-    let rightButton: AnyObject! = UIButton(type: UIButtonType.detailDisclosure)
-    pinView?.rightCalloutAccessoryView = rightButton as? UIView
     
     return pinView
   }
