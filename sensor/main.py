@@ -148,7 +148,8 @@ def main():
         # ply.write_stream(x=now_time, loudness=loudness, light=light)
 
         req = RequestToApi('https://anaba-works.herokuapp.com/api/environments/', time=now_time, place=mac_address,
-                           loudness=loudness, light=light, air_cleanness=air_cleanness, temp=temp, humid=humid, co2_ppm=ppm)
+                           loudness=loudness, light=light, air_cleanness=air_cleanness, temp=temp, humid=humid,
+                           co2_ppm=ppm, no_of_person=person_data)
         req.execute_request()
         client.publish(mqtt_topic, mqtt_message)
 
