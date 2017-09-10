@@ -15,4 +15,4 @@ class PlaceSerializer(serializers.ModelSerializer):
 class EnvironmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Environment
-        fields = ('id', 'place', 'time', 'temp', 'humid', 'light', 'loudness', 'air_cleanness')
+        fields = ('id', 'place', 'time', 'temp', 'humid', 'light', 'loudness', 'air_cleanness', 'co2_ppm')
