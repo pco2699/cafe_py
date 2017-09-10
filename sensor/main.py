@@ -141,6 +141,9 @@ def main():
         (ppm, temp_from_co2) = co2_value.read()
 
         now_time = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ')
+        client.publish(mqtt_topic, mqtt_message)
+
+        sleep(5)
 
         person_data = read_data()
         print(person_data)
@@ -151,9 +154,8 @@ def main():
                            loudness=loudness, light=light, air_cleanness=air_cleanness, temp=temp, humid=humid,
                            co2_ppm=ppm, no_of_person=person_data)
         req.execute_request()
-        client.publish(mqtt_topic, mqtt_message)
 
-        sleep(60)
+        sleep(300)
 
 
 if __name__ == '__main__':
