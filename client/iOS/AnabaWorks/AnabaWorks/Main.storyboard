@@ -36,7 +36,7 @@
                     <tabBarItem key="tabBarItem" title="Map" image="map" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="mapview" destination="fOT-9y-5SP" id="q8G-HJ-Tr7"/>
-                        <segue destination="yel-iy-FpL" kind="showDetail" customClass="detailSegue" id="f1M-v5-wJY"/>
+                        <segue destination="yel-iy-FpL" kind="showDetail" identifier="detailSegue" id="f1M-v5-wJY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -73,16 +73,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi" highlightedImage="wifi_highlight" translatesAutoresizingMaskIntoConstraints="NO" id="Bxa-mr-OAW">
+                                <rect key="frame" x="68.5" y="338" width="38" height="41"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="power" highlightedImage="power_highlight" translatesAutoresizingMaskIntoConstraints="NO" id="93J-O1-KWt">
+                                <rect key="frame" x="168" y="339" width="38" height="40"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Bxa-mr-OAW" firstAttribute="centerX" secondItem="RCS-YL-VtC" secondAttribute="centerX" constant="-100" id="0oQ-tW-a5v"/>
                             <constraint firstItem="jsS-no-6xR" firstAttribute="leading" secondItem="RCS-YL-VtC" secondAttribute="leading" id="C43-6n-HrF"/>
+                            <constraint firstItem="93J-O1-KWt" firstAttribute="centerX" secondItem="RCS-YL-VtC" secondAttribute="centerX" id="Gdf-e5-5Li"/>
                             <constraint firstAttribute="trailing" secondItem="dRi-lb-LSS" secondAttribute="trailing" id="IdH-Jb-5L9"/>
                             <constraint firstAttribute="trailing" secondItem="jsS-no-6xR" secondAttribute="trailing" id="KE2-13-P2Q"/>
                             <constraint firstItem="Jog-Jq-8sP" firstAttribute="top" secondItem="jsS-no-6xR" secondAttribute="bottom" constant="15" id="OAT-eB-URM"/>
                             <constraint firstItem="dRi-lb-LSS" firstAttribute="leading" secondItem="RCS-YL-VtC" secondAttribute="leading" id="WAZ-T2-vmC"/>
                             <constraint firstItem="dRi-lb-LSS" firstAttribute="top" secondItem="CCA-Gg-mpg" secondAttribute="bottom" id="f8z-pR-GvW"/>
                             <constraint firstItem="Jog-Jq-8sP" firstAttribute="centerX" secondItem="RCS-YL-VtC" secondAttribute="centerX" id="gbp-yX-OTZ"/>
+                            <constraint firstItem="Bxa-mr-OAW" firstAttribute="top" secondItem="jsS-no-6xR" secondAttribute="bottom" constant="74" id="hgH-4r-7c6"/>
+                            <constraint firstItem="93J-O1-KWt" firstAttribute="baseline" secondItem="Bxa-mr-OAW" secondAttribute="baseline" id="rCW-O6-sZs"/>
                             <constraint firstItem="jsS-no-6xR" firstAttribute="top" secondItem="dRi-lb-LSS" secondAttribute="bottom" id="sOZ-xz-1Xy"/>
                         </constraints>
                     </view>
@@ -91,7 +101,7 @@
             </objects>
             <point key="canvasLocation" x="1653.5999999999999" y="-353.07346326836586"/>
         </scene>
-        <!--Second-->
+        <!--Favorites-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="AnabaWorks" customModuleProvider="target" sceneMemberID="viewController">
@@ -125,7 +135,7 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" selectedImage="love" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="love" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -154,6 +164,9 @@
     <resources>
         <image name="love" width="28" height="23"/>
         <image name="map" width="28" height="25"/>
-        <image name="second" width="30" height="30"/>
+        <image name="power" width="38" height="40"/>
+        <image name="power_highlight" width="38" height="40"/>
+        <image name="wifi" width="38" height="41"/>
+        <image name="wifi_highlight" width="38" height="41"/>
     </resources>
 </document>

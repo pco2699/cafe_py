@@ -19,7 +19,7 @@ def on_message(mqttc, obj, msg):
     f.close()
 
 # 接続します
-client.connect(MQTTHOST)
+client.connect(MQTTHOST, port=8080)
 
 TOPIC = ""
 # Subscribeします
