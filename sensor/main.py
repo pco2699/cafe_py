@@ -2,10 +2,10 @@
 
 import datetime
 import grovepi
-import plotly.tools as tls
+#import plotly.tools as tls
 from time import sleep
-import plotly.graph_objs as go
-import plotly.plotly as py
+# import plotly.graph_objs as go
+# import plotly.plotly as py
 import requests
 import json
 from grove_co2_sensor import grove_co2_lib
@@ -14,7 +14,7 @@ import paho.mqtt.client as mqtt
 mqtt_host = 'localhost'
 mqtt_topic = 'berrynet/event/camera'
 mqtt_message = 'snapshot_picam'
-mqtt_port = '3000'
+mqtt_port = '1883'
 
 TEMP_HUMID_PORT = 7  # 温湿度を取得するポートはD7
 LOUDNESS_PORT = 0  # 騒音センサーを取得するポートはA0
@@ -126,7 +126,7 @@ def main():
     co2_value = grove_co2_lib.CO2()
 
     # インスタンス作成時に protocol v3.1.1 を指定します
-    client = mqtt.Client(protocol=mqtt.MQTTv311)
+    client = mqtt.Client(client_id="hoge", protocol=mqtt.MQTTv311)
     client.connect(mqtt_host, port=mqtt_port, keepalive=60)
 
     print("starting post to the api...")
@@ -143,6 +143,7 @@ def main():
         now_time = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ')
 
         person_data = read_data()
+        print(person_data)
 
         # ply.write_stream(x=now_time, loudness=loudness, light=light)
 
