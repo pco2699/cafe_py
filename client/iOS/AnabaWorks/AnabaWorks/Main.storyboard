@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Map-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="AnabaWorks" customModuleProvider="target" sceneMemberID="viewController">
@@ -21,27 +21,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fOT-9y-5SP">
-                                <rect key="frame" x="0.0" y="49" width="375" height="569"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fOT-9y-5SP">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="fOT-9y-5SP" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="NnT-Li-qBt"/>
                             <constraint firstItem="fOT-9y-5SP" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="Rik-78-7Ln"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="fOT-9y-5SP" secondAttribute="bottom" id="VXc-Ln-4M1"/>
-                            <constraint firstItem="fOT-9y-5SP" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="WPK-YU-6IE"/>
-                            <constraint firstItem="fOT-9y-5SP" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="dfi-H8-l9w"/>
                             <constraint firstAttribute="trailing" secondItem="fOT-9y-5SP" secondAttribute="trailing" id="rZb-yl-gCp"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="mapview" destination="fOT-9y-5SP" id="q8G-HJ-Tr7"/>
+                        <segue destination="yel-iy-FpL" kind="showDetail" customClass="detailSegue" id="f1M-v5-wJY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
+            <point key="canvasLocation" x="802" y="-353"/>
+        </scene>
+        <!--Store Detail View Controller-->
+        <scene sceneID="DyM-00-z37">
+            <objects>
+                <viewController id="yel-iy-FpL" customClass="StoreDetailViewController" customModule="AnabaWorks" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CCA-Gg-mpg"/>
+                        <viewControllerLayoutGuide type="bottom" id="IEf-vQ-SJe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RCS-YL-VtC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRi-lb-LSS">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="czp-E9-kzX"/>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jsS-no-6xR">
+                                <rect key="frame" x="0.0" y="64" width="375" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="nMu-CN-ZHy"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jog-Jq-8sP">
+                                <rect key="frame" x="162" y="279" width="51.5" height="32.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jsS-no-6xR" firstAttribute="leading" secondItem="RCS-YL-VtC" secondAttribute="leading" id="C43-6n-HrF"/>
+                            <constraint firstAttribute="trailing" secondItem="dRi-lb-LSS" secondAttribute="trailing" id="IdH-Jb-5L9"/>
+                            <constraint firstAttribute="trailing" secondItem="jsS-no-6xR" secondAttribute="trailing" id="KE2-13-P2Q"/>
+                            <constraint firstItem="Jog-Jq-8sP" firstAttribute="top" secondItem="jsS-no-6xR" secondAttribute="bottom" constant="15" id="OAT-eB-URM"/>
+                            <constraint firstItem="dRi-lb-LSS" firstAttribute="leading" secondItem="RCS-YL-VtC" secondAttribute="leading" id="WAZ-T2-vmC"/>
+                            <constraint firstItem="dRi-lb-LSS" firstAttribute="top" secondItem="CCA-Gg-mpg" secondAttribute="bottom" id="f8z-pR-GvW"/>
+                            <constraint firstItem="Jog-Jq-8sP" firstAttribute="centerX" secondItem="RCS-YL-VtC" secondAttribute="centerX" id="gbp-yX-OTZ"/>
+                            <constraint firstItem="jsS-no-6xR" firstAttribute="top" secondItem="dRi-lb-LSS" secondAttribute="bottom" id="sOZ-xz-1Xy"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fbk-d7-c0o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1653.5999999999999" y="-353.07346326836586"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
@@ -77,7 +125,7 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Second" image="second" selectedImage="love" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,7 +152,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="love" width="28" height="23"/>
+        <image name="map" width="28" height="25"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>

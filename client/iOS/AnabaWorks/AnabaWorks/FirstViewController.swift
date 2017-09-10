@@ -11,23 +11,28 @@ import MapKit
 import Alamofire
 import SwiftyJSON
 
-class FirstViewController: UIViewController, UITextFieldDelegate, MKMapViewDelegate, CLLocationManagerDelegate {
+class FirstViewController: UIViewController, UITextFieldDelegate, MKMapViewDelegate, CLLocationManagerDelegate, MyCalloutViewDelegate {
   
   var locationManager: CLLocationManager!
+  var selectedStore: storeDetail?
 
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
     // タップした時のアクションを追加
-    let tapGesture = UILongPressGestureRecognizer(target: self, action: #selector(mapTapped(_:)))
-    mapview.addGestureRecognizer(tapGesture)
+    // let tapGesture = UILongPressGestureRecognizer(target: self, action: #selector(mapTapped(_:)))
+    // mapview.addGestureRecognizer(tapGesture)
     
     // MapView Delegate設定
     mapview.delegate = self
     
     setupLocationManager()
-    
     getLocation()
+    mapview.showsUserLocation = true
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    self.mapview.region = MKCoordinateRegionMakeWithDistance(mapview.userLocation.coordinate, 500.0, 500.0)
   }
   
   func setupLocationManager() {
@@ -49,31 +54,15 @@ class FirstViewController: UIViewController, UITextFieldDelegate, MKMapViewDeleg
     // Dispose of any resources that can be recreated.
   }
   
-  func mapTapped(_ sender: UILongPressGestureRecognizer){
-    // タッチ終了か？
-    if sender.state == .ended {
-      print("tapp")
-      // 画面上のタッチした座標を取得
-      let tapPoint = sender.location(in: mapview)
-      // タッチした座標からマップ上の緯度経度を取得
-      _ = mapview.convert(tapPoint, toCoordinateFrom: mapview)
-      
-      self.mapview.removeOverlays(mapview.overlays)
-      self.mapview.removeAnnotations(mapview.annotations)
-      
-      // getLocation(location)
-    }
-  }
-  
   func getLocation() {
     let url = "https://anaba-works.herokuapp.com/api/places/"
     Alamofire.request(url)
       .responseJSON(completionHandler: { response in
         let json = JSON(response.result.value ?? "empty")
         json.forEach{(_, data) in
-          print(data["has_wifi"])
-          let cordinate = CLLocationCoordinate2D(latitude: Double(data["lat"].string!)!, longitude: Double(data["long"].string!)!)
-          let pin = MyAnnotation(sensor: true, coord: cordinate)
+          let coordinate = CLLocationCoordinate2D(latitude: Double(data["lat"].string!)!, longitude: Double(data["long"].string!)!)
+          let store_detail = storeDetail(has_Sensor: true, title: data["name"].string!, address: data["address"].string!, desc: data["sensor_mac_address"].string!)
+          let pin = MyAnnotation(coord: coordinate, store_detail: store_detail)
           
           self.mapview.addAnnotation(pin)
           
@@ -86,10 +75,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate, MKMapViewDeleg
       return nil
     }
     let reuseId = "pin"
-    var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MyAnnotationView
+    var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
     if pinView == nil {
       pinView = MyAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-//      pinView?.animatesDrop = true
+      (pinView as? MyAnnotationView)?.storeDetailDelegate = self
+      
     }
     else {
       pinView?.annotation = annotation
@@ -109,7 +99,25 @@ class FirstViewController: UIViewController, UITextFieldDelegate, MKMapViewDeleg
     }
   }
   
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if let store_detail_vc = segue.destination as? StoreDetailViewController {
+      store_detail_vc.store_detail = self.selectedStore
+    }
+  }
   
+  func detailsRequestedForStore(store_detail: storeDetail) {
+    self.selectedStore = store_detail
+    performSegue(withIdentifier: "detailSegue", sender: self)
+  }
+  
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    guard let newLocation = locations.last else {
+      return
+    }
+    
+    self.mapview.region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 500.0, 500.0)
+    
+  }
 
 
 }

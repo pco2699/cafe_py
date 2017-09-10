@@ -10,13 +10,17 @@
 		73F3F01A1F545EC6009AFA5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3F0191F545EC6009AFA5F /* AppDelegate.swift */; };
 		73F3F01C1F545EC6009AFA5F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3F01B1F545EC6009AFA5F /* FirstViewController.swift */; };
 		73F3F01E1F545EC6009AFA5F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3F01D1F545EC6009AFA5F /* SecondViewController.swift */; };
-		73F3F0211F545EC6009AFA5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73F3F01F1F545EC6009AFA5F /* Main.storyboard */; };
 		73F3F0231F545EC6009AFA5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73F3F0221F545EC6009AFA5F /* Assets.xcassets */; };
-		73F3F0261F545EC6009AFA5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73F3F0241F545EC6009AFA5F /* LaunchScreen.storyboard */; };
 		73F3F0391F5467A6009AFA5F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F3F0371F5467A6009AFA5F /* SwiftyJSON.framework */; };
 		73F3F03A1F5467A6009AFA5F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F3F0381F5467A6009AFA5F /* Alamofire.framework */; };
 		73F3F03D1F5A678A009AFA5F /* MyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3F03C1F5A678A009AFA5F /* MyAnnotation.swift */; };
 		73F3F03F1F5A6C7C009AFA5F /* MyAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3F03E1F5A6C7C009AFA5F /* MyAnnotationView.swift */; };
+		73F3F04B1F5E4F09009AFA5F /* MyCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73F3F04A1F5E4F09009AFA5F /* MyCalloutView.xib */; };
+		73F3F04D1F5E5053009AFA5F /* MyCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3F04C1F5E5053009AFA5F /* MyCalloutView.swift */; };
+		73F3F0691F6167FC009AFA5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73F3F0671F6167FC009AFA5F /* Main.storyboard */; };
+		73F3F06A1F6167FC009AFA5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73F3F0681F6167FC009AFA5F /* LaunchScreen.storyboard */; };
+		73F3F06C1F616847009AFA5F /* storeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3F06B1F616847009AFA5F /* storeDetail.swift */; };
+		73F3F06F1F616C63009AFA5F /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3F06E1F616C63009AFA5F /* StoreDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,14 +28,18 @@
 		73F3F0191F545EC6009AFA5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73F3F01B1F545EC6009AFA5F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		73F3F01D1F545EC6009AFA5F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		73F3F0201F545EC6009AFA5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		73F3F0221F545EC6009AFA5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		73F3F0251F545EC6009AFA5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73F3F0271F545EC6009AFA5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73F3F0371F5467A6009AFA5F /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		73F3F0381F5467A6009AFA5F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		73F3F03C1F5A678A009AFA5F /* MyAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAnnotation.swift; sourceTree = "<group>"; };
 		73F3F03E1F5A6C7C009AFA5F /* MyAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAnnotationView.swift; sourceTree = "<group>"; };
+		73F3F04A1F5E4F09009AFA5F /* MyCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCalloutView.xib; sourceTree = "<group>"; };
+		73F3F04C1F5E5053009AFA5F /* MyCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCalloutView.swift; sourceTree = "<group>"; };
+		73F3F0671F6167FC009AFA5F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		73F3F0681F6167FC009AFA5F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		73F3F06B1F616847009AFA5F /* storeDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = storeDetail.swift; sourceTree = "<group>"; };
+		73F3F06E1F616C63009AFA5F /* StoreDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,11 +77,10 @@
 			children = (
 				73F3F03B1F5A65F2009AFA5F /* Model */,
 				73F3F0191F545EC6009AFA5F /* AppDelegate.swift */,
-				73F3F01B1F545EC6009AFA5F /* FirstViewController.swift */,
-				73F3F01D1F545EC6009AFA5F /* SecondViewController.swift */,
-				73F3F01F1F545EC6009AFA5F /* Main.storyboard */,
+				73F3F06D1F616C1D009AFA5F /* View */,
+				73F3F0671F6167FC009AFA5F /* Main.storyboard */,
+				73F3F0681F6167FC009AFA5F /* LaunchScreen.storyboard */,
 				73F3F0221F545EC6009AFA5F /* Assets.xcassets */,
-				73F3F0241F545EC6009AFA5F /* LaunchScreen.storyboard */,
 				73F3F0271F545EC6009AFA5F /* Info.plist */,
 			);
 			path = AnabaWorks;
@@ -93,8 +100,21 @@
 			children = (
 				73F3F03C1F5A678A009AFA5F /* MyAnnotation.swift */,
 				73F3F03E1F5A6C7C009AFA5F /* MyAnnotationView.swift */,
+				73F3F06B1F616847009AFA5F /* storeDetail.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		73F3F06D1F616C1D009AFA5F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				73F3F04A1F5E4F09009AFA5F /* MyCalloutView.xib */,
+				73F3F04C1F5E5053009AFA5F /* MyCalloutView.swift */,
+				73F3F01B1F545EC6009AFA5F /* FirstViewController.swift */,
+				73F3F01D1F545EC6009AFA5F /* SecondViewController.swift */,
+				73F3F06E1F616C63009AFA5F /* StoreDetailViewController.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,9 +178,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73F3F0261F545EC6009AFA5F /* LaunchScreen.storyboard in Resources */,
+				73F3F0691F6167FC009AFA5F /* Main.storyboard in Resources */,
 				73F3F0231F545EC6009AFA5F /* Assets.xcassets in Resources */,
-				73F3F0211F545EC6009AFA5F /* Main.storyboard in Resources */,
+				73F3F06A1F6167FC009AFA5F /* LaunchScreen.storyboard in Resources */,
+				73F3F04B1F5E4F09009AFA5F /* MyCalloutView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,7 +210,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73F3F06C1F616847009AFA5F /* storeDetail.swift in Sources */,
+				73F3F06F1F616C63009AFA5F /* StoreDetailViewController.swift in Sources */,
 				73F3F01E1F545EC6009AFA5F /* SecondViewController.swift in Sources */,
+				73F3F04D1F5E5053009AFA5F /* MyCalloutView.swift in Sources */,
 				73F3F01A1F545EC6009AFA5F /* AppDelegate.swift in Sources */,
 				73F3F03F1F5A6C7C009AFA5F /* MyAnnotationView.swift in Sources */,
 				73F3F03D1F5A678A009AFA5F /* MyAnnotation.swift in Sources */,
@@ -198,25 +222,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		73F3F01F1F545EC6009AFA5F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				73F3F0201F545EC6009AFA5F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		73F3F0241F545EC6009AFA5F /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				73F3F0251F545EC6009AFA5F /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		73F3F0281F545EC6009AFA5F /* Debug */ = {

@@ -8,6 +8,13 @@ import plotly.graph_objs as go
 import plotly.plotly as py
 import requests
 import json
+from grove_co2_sensor import grove_co2_lib
+import paho.mqtt.client as mqtt
+
+mqtt_host = 'localhost'
+mqtt_topic = 'berrynet/event/camera'
+mqtt_message = 'snapshot_picam'
+mqtt_port = '3000'
 
 TEMP_HUMID_PORT = 7  # 温湿度を取得するポートはD7
 LOUDNESS_PORT = 0  # 騒音センサーを取得するポートはA0
@@ -104,11 +111,23 @@ def get_mac(interface):
     return mac_address[0:17]
 
 
+def read_data():
+    f = open('data.txt', 'r')
+    person_data = f.read()
+    f.close()
+    return person_data
+
+
 def main():
     # ply = Plotly_writer()
     # ply.open_stream()
 
     mac_address = get_mac('wlan0')
+    co2_value = grove_co2_lib.CO2()
+
+    # インスタンス作成時に protocol v3.1.1 を指定します
+    client = mqtt.Client(protocol=mqtt.MQTTv311)
+    client.connect(mqtt_host, port=mqtt_port, keepalive=60)
 
     print("starting post to the api...")
 
@@ -119,17 +138,20 @@ def main():
         light = grovepi.analogRead(LIGHT_PORT)
         air_cleanness = grovepi.analogRead(AIR_PORT)
         (temp, humid) = grovepi.dht(TEMP_HUMID_PORT, 0)
-        print('air_cleanness : ' + str(air_cleanness))
+        (ppm, temp_from_co2) = co2_value.read()
 
         now_time = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ')
 
+        person_data = read_data()
+
         # ply.write_stream(x=now_time, loudness=loudness, light=light)
 
-        req = RequestToApi('https://anaba-works.herokuapp.com/api/environments/', time=now_time, place=mac_address, loudness=loudness,
-                           light=light, air_cleanness=air_cleanness, temp=temp, humid=humid)
+        req = RequestToApi('https://anaba-works.herokuapp.com/api/environments/', time=now_time, place=mac_address,
+                           loudness=loudness, light=light, air_cleanness=air_cleanness, temp=temp, humid=humid, co2_ppm=ppm)
         req.execute_request()
+        client.publish(mqtt_topic, mqtt_message)
 
-        sleep(600)
+        sleep(60)
 
 
 if __name__ == '__main__':

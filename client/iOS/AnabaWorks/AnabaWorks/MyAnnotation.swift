@@ -10,11 +10,11 @@ import UIKit
 import MapKit
 
 class MyAnnotation: NSObject, MKAnnotation {
-  open var has_Sensor: Bool
+  open var store_detail: storeDetail
   open var coordinate: CLLocationCoordinate2D
   
-  init(sensor: Bool, coord: CLLocationCoordinate2D){
-    self.has_Sensor = sensor
+  init(coord: CLLocationCoordinate2D, store_detail: storeDetail){
+    self.store_detail = store_detail
     self.coordinate = coord
   }
 }

@@ -4,11 +4,10 @@
 import django_filters
 from django.shortcuts import render
 from rest_framework import viewsets, filters
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.renderers import JSONRenderer
-from rest_framework.parsers import JSONParser
+from rest_framework.response import Response
+from rest_framework.decorators import list_route
+from .models import Environment
 
-from django.http import HttpResponse, JsonResponse
 
 from .models import Place, Environment
 from .serializer import PlaceSerializer, EnvironmentSerializer
@@ -22,3 +21,11 @@ class PlaceViewSet(viewsets.ModelViewSet):
 class EnvironmentViewSet(viewsets.ModelViewSet):
     queryset = Environment.objects.all()
     serializer_class = EnvironmentSerializer
+    filter_fields = ('sensor_mac_address')
+
+    @list_route()
+    def recent_data(self, request, place=None):
+        recent_users = Environment.objects.all().order_by('-time').first()
+
+        serializer = self.get_serializer(recent_users)
+        return Response(serializer.data)

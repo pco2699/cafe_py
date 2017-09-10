@@ -23,6 +23,7 @@ class Environment(models.Model):
     light = models.IntegerField()
     loudness = models.IntegerField()
     air_cleanness = models.IntegerField()
+    co2_ppm = models.IntegerField()
 
     class Meta:
         unique_together = (("place", "time"),)
