@@ -112,7 +112,7 @@ def get_mac(interface):
 
 
 def read_data():
-    f = open('data.txt', 'r')
+    f = open('/tmp/data.txt', 'r')
     person_data = f.read()
     f.close()
     return person_data

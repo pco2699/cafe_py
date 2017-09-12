@@ -12,7 +12,7 @@ client = mqtt.Client()
 def on_message(mqttc, obj, msg):
     data = str(msg.payload)
 
-    f = open('data.txt', 'w')
+    f = open('/tmp/data.txt', 'w')
     f.write(str(data.count('person')))
     f.close()
 
