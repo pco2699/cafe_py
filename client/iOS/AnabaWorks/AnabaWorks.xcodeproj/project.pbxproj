@@ -21,6 +21,7 @@
 		73F3F06A1F6167FC009AFA5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73F3F0681F6167FC009AFA5F /* LaunchScreen.storyboard */; };
 		73F3F06C1F616847009AFA5F /* storeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3F06B1F616847009AFA5F /* storeDetail.swift */; };
 		73F3F06F1F616C63009AFA5F /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3F06E1F616C63009AFA5F /* StoreDetailViewController.swift */; };
+		73F3F0711F68172B009AFA5F /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3F0701F68172B009AFA5F /* MyButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		73F3F0681F6167FC009AFA5F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73F3F06B1F616847009AFA5F /* storeDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = storeDetail.swift; sourceTree = "<group>"; };
 		73F3F06E1F616C63009AFA5F /* StoreDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
+		73F3F0701F68172B009AFA5F /* MyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				73F3F0681F6167FC009AFA5F /* LaunchScreen.storyboard */,
 				73F3F0221F545EC6009AFA5F /* Assets.xcassets */,
 				73F3F0271F545EC6009AFA5F /* Info.plist */,
+				73F3F0701F68172B009AFA5F /* MyButton.swift */,
 			);
 			path = AnabaWorks;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				73F3F01E1F545EC6009AFA5F /* SecondViewController.swift in Sources */,
 				73F3F04D1F5E5053009AFA5F /* MyCalloutView.swift in Sources */,
 				73F3F01A1F545EC6009AFA5F /* AppDelegate.swift in Sources */,
+				73F3F0711F68172B009AFA5F /* MyButton.swift in Sources */,
 				73F3F03F1F5A6C7C009AFA5F /* MyAnnotationView.swift in Sources */,
 				73F3F03D1F5A678A009AFA5F /* MyAnnotation.swift in Sources */,
 				73F3F01C1F545EC6009AFA5F /* FirstViewController.swift in Sources */,
@@ -333,6 +337,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.pco2699.AnabaWorks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -350,6 +355,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.pco2699.AnabaWorks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
