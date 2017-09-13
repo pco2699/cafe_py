@@ -9,7 +9,7 @@ class PlaceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Place
         fields = ('id', 'address', 'long', 'lat', 'name', 'sensor_mac_address', 'has_wifi', 'has_power',
-                  'is_permitSmoking')
+                  'is_permitSmoking', 'place_description')
 
 
 class EnvironmentSerializer(serializers.ModelSerializer):

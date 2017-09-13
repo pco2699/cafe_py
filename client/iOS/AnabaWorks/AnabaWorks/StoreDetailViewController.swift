@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class StoreDetailViewController: UIViewController {
   
@@ -20,8 +22,19 @@ class StoreDetailViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     
+    if let store_detail_unwrapped = store_detail {
+      let url = "https://anaba-works.herokuapp.com/api/envrioments/recent_data/"
+      Alamofire.request(url, parameters: ["sensor_mac_address": store_detail_unwrapped.])
+        .responseJSON(completionHandler: { response in
+
+      
+      
+    }
+
   }
-  
+  @IBOutlet weak var wifi_mark: UIImageView!
+  @IBOutlet weak var power_mark: UIImageView!
+  @IBOutlet weak var tobacco_mark: UIImageView!
 
   override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()

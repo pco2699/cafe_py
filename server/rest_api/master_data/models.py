@@ -8,6 +8,7 @@ class Place(models.Model):
     address = models.CharField(max_length=100)
     long = models.DecimalField(max_digits=15, decimal_places=12, null=True)
     lat = models.DecimalField(max_digits=15, decimal_places=12, null=True)
+    place_description = models.CharField(max_length=100, blank=True)
     sensor_mac_address = models.CharField(max_length=17, unique=True, blank=True)
     has_sensor = models.NullBooleanField()
     has_wifi = models.NullBooleanField()
