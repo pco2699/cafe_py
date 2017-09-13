@@ -15,6 +15,9 @@ class Place(models.Model):
     has_power = models.NullBooleanField()
     is_permitSmoking = models.NullBooleanField()
 
+    def __str__(self):
+        return self.name
+
 
 class Environment(models.Model):
     place = models.ForeignKey(Place, to_field="sensor_mac_address")
@@ -29,6 +32,9 @@ class Environment(models.Model):
 
     class Meta:
         unique_together = (("place", "time"),)
+
+    def __str__(self):
+        return str(self.place) + " " + str(self.time)
 
 
 class Song(models.Model):
