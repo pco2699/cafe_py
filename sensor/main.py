@@ -112,9 +112,12 @@ def get_mac(interface):
 
 
 def read_data():
-    f = open('/tmp/data.txt', 'r')
-    person_data = f.read()
-    f.close()
+    try:
+       f = open('/home/pi/data.txt', 'r')
+       person_data = f.read()
+       f.close()
+    except (OSError, IOError) as e:
+       person_data = -1
     return person_data
 
 
@@ -128,6 +131,7 @@ def main():
     # インスタンス作成時に protocol v3.1.1 を指定します
     client = mqtt.Client(client_id="hoge", protocol=mqtt.MQTTv311)
     client.connect(mqtt_host, port=mqtt_port, keepalive=60)
+    client.loop_start()
 
     print("starting post to the api...")
 
@@ -143,7 +147,7 @@ def main():
         now_time = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ')
         client.publish(mqtt_topic, mqtt_message)
 
-        sleep(5)
+        sleep(10)
 
         person_data = read_data()
         print(person_data)
