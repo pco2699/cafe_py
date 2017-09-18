@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import Alamofire
 import SwiftyJSON
+import AlamofireObjectMapper
 
 class FirstViewController: UIViewController, UITextFieldDelegate, MKMapViewDelegate, CLLocationManagerDelegate, MyCalloutViewDelegate {
   
@@ -57,17 +58,20 @@ class FirstViewController: UIViewController, UITextFieldDelegate, MKMapViewDeleg
   func getLocation() {
     let url = "https://anaba-works.herokuapp.com/api/places/"
     Alamofire.request(url)
-      .responseJSON(completionHandler: { response in
-        let json = JSON(response.result.value ?? "empty")
-        json.forEach{(_, data) in
-          let coordinate = CLLocationCoordinate2D(latitude: Double(data["lat"].string!)!, longitude: Double(data["long"].string!)!)
-          let store_detail = storeDetail(has_Sensor: true, title: data["name"].string!, address: data["address"].string!, desc: data["sensor_mac_address"].string!)
-          let pin = MyAnnotation(coord: coordinate, store_detail: store_detail)
-          
-          self.mapview.addAnnotation(pin)
-          
+      .responseArray { (response: DataResponse<[storeDetail]>) in
+
+        let storeDetailArray = response.result.value
+        
+        if let storeDetailArray = storeDetailArray {
+          for store_detail in storeDetailArray {
+            let coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(store_detail.lat), longitude: CLLocationDegrees(store_detail.long))
+            let pin = MyAnnotation(coord: coordinate, store_detail: store_detail)
+            
+            self.mapview.addAnnotation(pin)
+
+          }
         }
-      })
+      }
   }
   
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -83,6 +87,12 @@ class FirstViewController: UIViewController, UITextFieldDelegate, MKMapViewDeleg
     }
     else {
       pinView?.annotation = annotation
+    }
+    if ((pinView?.annotation as? MyAnnotation)?.store_detail.has_Sensor)! {
+      pinView?.image = UIImage(named: "Sensor")
+    }
+    else {
+      pinView?.image = UIImage(named: "Nosensor")
     }
     
     return pinView

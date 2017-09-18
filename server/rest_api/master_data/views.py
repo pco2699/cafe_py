@@ -14,10 +14,11 @@ from .serializer import PlaceSerializer, EnvironmentSerializer
 class PlaceFilter(django_filters.FilterSet):
     long = django_filters.RangeFilter()
     lat = django_filters.RangeFilter()
+    name = django_filters.CharFilter(lookup_expr=['contains'])
 
     class Meta:
         model = Place
-        fields = ['lat', 'long']
+        fields = ['lat', 'long', 'name']
 
 
 class PlaceViewSet(viewsets.ModelViewSet):

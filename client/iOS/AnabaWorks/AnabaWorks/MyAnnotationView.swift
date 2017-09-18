@@ -9,8 +9,6 @@
 import UIKit
 import MapKit
 
-private var kSensorMapPinImage = UIImage(named: "Sensor")
-private var kNosensorMapPinImage = UIImage(named: "Nosensor")
 private let kPersonMapAnimationTime = 0.300
 
 class MyAnnotationView: MKAnnotationView {
@@ -28,13 +26,11 @@ class MyAnnotationView: MKAnnotationView {
   override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
     super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
     self.canShowCallout = false
-    self.image = setImage(hasSensor: ((annotation as! MyAnnotation).store_detail.has_Sensor))
   }
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     self.canShowCallout = false // This is important: Don't show default callout.
-    self.image = setImage(hasSensor: false)
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
@@ -78,23 +74,14 @@ class MyAnnotationView: MKAnnotationView {
       let personDetailMapView = views.first!
       if let myAnnotation = annotation as? MyAnnotation {
         personDetailMapView.delegate = self.storeDetailDelegate
-        personDetailMapView.confirureWithInfo(store_detail: myAnnotation.store_detail, title: myAnnotation.store_detail.title!,
-                                              address: myAnnotation.store_detail.address!, descrption: myAnnotation.store_detail.desc!)
+        personDetailMapView.confirureWithInfo(store_detail: myAnnotation.store_detail, title: myAnnotation.store_detail.title,
+                                              address: myAnnotation.store_detail.address, descrption: myAnnotation.store_detail.desc)
       }
       return personDetailMapView
     }
     return nil
   }
-  
-  func setImage(hasSensor: Bool) -> UIImage {
-    if hasSensor {
-      return kSensorMapPinImage!
-    }
-    else {
-      return kNosensorMapPinImage!
-    }
-  }
-  
+    
   override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
     // if super passed hit test, return the result
     if let parentHitView = super.hitTest(point, with: event) { return parentHitView }

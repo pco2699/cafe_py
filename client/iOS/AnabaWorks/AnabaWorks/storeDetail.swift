@@ -7,18 +7,34 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class storeDetail: NSObject {
-  var has_Sensor: Bool
-  var title: String?
-  var address: String?
-  var desc: String?
+class storeDetail: Mappable {
+  var has_Sensor: Bool = false
+  var title: String = "No Title"
+  var address: String = "No Address"
+  var lat: NSDecimalNumber = 0.0
+  var long: NSDecimalNumber = 0.0
+  var desc: String = ""
+  var sensor_mac_address: String = ""
+  var has_wifi: Bool = false
+  var has_power: Bool = false
+  var is_permitSmoking: Bool = false
   
-  init(has_Sensor: Bool, title: String, address: String, desc: String) {
-    self.has_Sensor = has_Sensor
-    self.title = title
-    self.address = address
-    self.desc = desc
+  required init?(map: Map) {
   }
-  override var description: String { return "Hoge" }
+  
+  func mapping(map: Map){
+    lat <- (map["lat"], NSDecimalNumberTransform())
+    long <- (map["long"], NSDecimalNumberTransform())
+    has_Sensor <- map["has_sensor"]
+    title <- map["name"]
+    address <- map["address"]
+    desc <- map["desc"]
+    sensor_mac_address <- map["sensor_mac_address"]
+    has_wifi <- map["has_wifi"]
+    has_power <- map["has_power"]
+    is_permitSmoking <- map["is_permitSmoking"]
+    desc <- map["place_description"]
+  }
 }
