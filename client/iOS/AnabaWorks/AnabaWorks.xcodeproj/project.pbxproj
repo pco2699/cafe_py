@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7302CBB11F6ABBD800190C4A /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7302CBAE1F6ABBD800190C4A /* ObjectMapper.framework */; };
-		7302CBB21F6ABBD800190C4A /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7302CBAF1F6ABBD800190C4A /* Charts.framework */; };
-		7302CBB31F6ABBD800190C4A /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7302CBB01F6ABBD800190C4A /* AlamofireObjectMapper.framework */; };
-		733C5A681F6E568700BD5A5B /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 733C5A671F6E568700BD5A5B /* Cartography.framework */; };
 		73D3552B1F6E96FE00B699F2 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D3552A1F6E96FE00B699F2 /* GraphViewController.swift */; };
+		73DAA9FD1F83CCBA0057EDF1 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DAA9F61F83CCBA0057EDF1 /* Alamofire.framework */; };
+		73DAA9FE1F83CCBA0057EDF1 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DAA9F71F83CCBA0057EDF1 /* AlamofireObjectMapper.framework */; };
+		73DAA9FF1F83CCBA0057EDF1 /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DAA9F81F83CCBA0057EDF1 /* Cartography.framework */; };
+		73DAAA001F83CCBA0057EDF1 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DAA9F91F83CCBA0057EDF1 /* Charts.framework */; };
+		73DAAA021F83CCBA0057EDF1 /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DAA9FB1F83CCBA0057EDF1 /* SwiftDate.framework */; };
+		73DAAA031F83CCBA0057EDF1 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DAA9FC1F83CCBA0057EDF1 /* SwiftyJSON.framework */; };
+		73DAAA041F83CDD50057EDF1 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DAA9FA1F83CCBA0057EDF1 /* ObjectMapper.framework */; };
 		73F3F01A1F545EC6009AFA5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3F0191F545EC6009AFA5F /* AppDelegate.swift */; };
 		73F3F01C1F545EC6009AFA5F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3F01B1F545EC6009AFA5F /* FirstViewController.swift */; };
 		73F3F01E1F545EC6009AFA5F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3F01D1F545EC6009AFA5F /* SecondViewController.swift */; };
 		73F3F0231F545EC6009AFA5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73F3F0221F545EC6009AFA5F /* Assets.xcassets */; };
-		73F3F0391F5467A6009AFA5F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F3F0371F5467A6009AFA5F /* SwiftyJSON.framework */; };
-		73F3F03A1F5467A6009AFA5F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F3F0381F5467A6009AFA5F /* Alamofire.framework */; };
 		73F3F03D1F5A678A009AFA5F /* MyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3F03C1F5A678A009AFA5F /* MyAnnotation.swift */; };
 		73F3F03F1F5A6C7C009AFA5F /* MyAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3F03E1F5A6C7C009AFA5F /* MyAnnotationView.swift */; };
 		73F3F04B1F5E4F09009AFA5F /* MyCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73F3F04A1F5E4F09009AFA5F /* MyCalloutView.xib */; };
@@ -31,19 +32,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7302CBAE1F6ABBD800190C4A /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
-		7302CBAF1F6ABBD800190C4A /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
-		7302CBB01F6ABBD800190C4A /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireObjectMapper.framework; path = Carthage/Build/iOS/AlamofireObjectMapper.framework; sourceTree = "<group>"; };
-		733C5A671F6E568700BD5A5B /* Cartography.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cartography.framework; path = Carthage/Build/iOS/Cartography.framework; sourceTree = "<group>"; };
 		73D3552A1F6E96FE00B699F2 /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
+		73DAA9F61F83CCBA0057EDF1 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		73DAA9F71F83CCBA0057EDF1 /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireObjectMapper.framework; path = Carthage/Build/iOS/AlamofireObjectMapper.framework; sourceTree = "<group>"; };
+		73DAA9F81F83CCBA0057EDF1 /* Cartography.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cartography.framework; path = Carthage/Build/iOS/Cartography.framework; sourceTree = "<group>"; };
+		73DAA9F91F83CCBA0057EDF1 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
+		73DAA9FA1F83CCBA0057EDF1 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		73DAA9FB1F83CCBA0057EDF1 /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/iOS/SwiftDate.framework; sourceTree = "<group>"; };
+		73DAA9FC1F83CCBA0057EDF1 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		73F3F0161F545EC6009AFA5F /* AnabaWorks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnabaWorks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73F3F0191F545EC6009AFA5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73F3F01B1F545EC6009AFA5F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		73F3F01D1F545EC6009AFA5F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		73F3F0221F545EC6009AFA5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73F3F0271F545EC6009AFA5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		73F3F0371F5467A6009AFA5F /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
-		73F3F0381F5467A6009AFA5F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		73F3F03C1F5A678A009AFA5F /* MyAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAnnotation.swift; sourceTree = "<group>"; };
 		73F3F03E1F5A6C7C009AFA5F /* MyAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAnnotationView.swift; sourceTree = "<group>"; };
 		73F3F04A1F5E4F09009AFA5F /* MyCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCalloutView.xib; sourceTree = "<group>"; };
@@ -61,12 +63,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				733C5A681F6E568700BD5A5B /* Cartography.framework in Frameworks */,
-				7302CBB11F6ABBD800190C4A /* ObjectMapper.framework in Frameworks */,
-				7302CBB21F6ABBD800190C4A /* Charts.framework in Frameworks */,
-				7302CBB31F6ABBD800190C4A /* AlamofireObjectMapper.framework in Frameworks */,
-				73F3F0391F5467A6009AFA5F /* SwiftyJSON.framework in Frameworks */,
-				73F3F03A1F5467A6009AFA5F /* Alamofire.framework in Frameworks */,
+				73DAAA041F83CDD50057EDF1 /* ObjectMapper.framework in Frameworks */,
+				73DAA9FD1F83CCBA0057EDF1 /* Alamofire.framework in Frameworks */,
+				73DAA9FE1F83CCBA0057EDF1 /* AlamofireObjectMapper.framework in Frameworks */,
+				73DAA9FF1F83CCBA0057EDF1 /* Cartography.framework in Frameworks */,
+				73DAAA001F83CCBA0057EDF1 /* Charts.framework in Frameworks */,
+				73DAAA021F83CCBA0057EDF1 /* SwiftDate.framework in Frameworks */,
+				73DAAA031F83CCBA0057EDF1 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,12 +111,13 @@
 		73F3F02D1F5462F5009AFA5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				733C5A671F6E568700BD5A5B /* Cartography.framework */,
-				7302CBAE1F6ABBD800190C4A /* ObjectMapper.framework */,
-				7302CBAF1F6ABBD800190C4A /* Charts.framework */,
-				7302CBB01F6ABBD800190C4A /* AlamofireObjectMapper.framework */,
-				73F3F0371F5467A6009AFA5F /* SwiftyJSON.framework */,
-				73F3F0381F5467A6009AFA5F /* Alamofire.framework */,
+				73DAA9F61F83CCBA0057EDF1 /* Alamofire.framework */,
+				73DAA9F71F83CCBA0057EDF1 /* AlamofireObjectMapper.framework */,
+				73DAA9F81F83CCBA0057EDF1 /* Cartography.framework */,
+				73DAA9F91F83CCBA0057EDF1 /* Charts.framework */,
+				73DAA9FA1F83CCBA0057EDF1 /* ObjectMapper.framework */,
+				73DAA9FB1F83CCBA0057EDF1 /* SwiftDate.framework */,
+				73DAA9FC1F83CCBA0057EDF1 /* SwiftyJSON.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -223,8 +227,9 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireObjectMapper.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Cartography.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftDate.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
 			);
 			outputPaths = (
 			);

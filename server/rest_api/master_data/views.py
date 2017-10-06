@@ -42,7 +42,10 @@ class EnvironmentViewSet(viewsets.ModelViewSet):
 
     @list_route()
     def recent_data(self, request, place=None):
-        recent_users = Environment.objects.all().order_by('-time').first()
+        recent_users = Environment.objects.all().filter(place=place).order_by('-time').first()
 
         serializer = self.get_serializer(recent_users)
-        return Response(serializer.data)
+        if serializer.is_valid():
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors)

@@ -1,6 +1,7 @@
 github "Alamofire/Alamofire"
 github "SwiftyJSON/SwiftyJSON"
-github "danielgindi/Charts" == 3.0.3
-github "Hearst-DD/ObjectMapper"
+github "danielgindi/Charts" == 3.0.2
+github "Hearst-DD/ObjectMapper" == 2.2.9
 github "tristanhimmelman/AlamofireObjectMapper"
 github "robb/Cartography" == 1.1.0
+github "malcommac/SwiftDate" == 4.3.0

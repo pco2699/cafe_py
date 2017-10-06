@@ -117,6 +117,16 @@ class StoreDetailViewController: UIViewController {
       // Dispose of any resources that can be recreated.
   }
   
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if let graph_view_controller = segue.destination as? GraphViewController {
+      graph_view_controller.store_detail = self.store_detail
+    }
+  }
+  
+  @IBAction func detailButtonAction(_ sender: Any) {
+    performSegue(withIdentifier: "graphSegue", sender: self)
+  }
+  
 
     /*
     // MARK: - Navigation

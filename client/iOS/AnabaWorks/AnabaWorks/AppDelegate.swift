@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftDate
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+    let jpnRegion = Region(tz: TimeZoneName.asiaTokyo, cal: CalendarName.japanese, loc: LocaleName.japanese)
+    Date.setDefaultRegion(jpnRegion)
+    // Since now each Date function works with this region instead of UTC
     return true
   }
 

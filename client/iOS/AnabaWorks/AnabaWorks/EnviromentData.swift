@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 
 enum Confort: Int {
-  case high = 400
+  case high = 500
   case middle = 1000
   case low = 1500
 }

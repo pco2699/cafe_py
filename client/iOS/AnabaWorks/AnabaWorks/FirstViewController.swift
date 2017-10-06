@@ -12,6 +12,23 @@ import Alamofire
 import SwiftyJSON
 import AlamofireObjectMapper
 
+extension UIImage {
+  func resize(size _size: CGSize) -> UIImage? {
+    let widthRatio = _size.width / size.width
+    let heightRatio = _size.height / size.height
+    let ratio = widthRatio < heightRatio ? widthRatio : heightRatio
+    
+    let resizedSize = CGSize(width: size.width * ratio, height: size.height * ratio)
+    
+    UIGraphicsBeginImageContextWithOptions(resizedSize, false, 0.0) // 変更
+    draw(in: CGRect(origin: .zero, size: resizedSize))
+    let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    
+    return resizedImage
+  }
+}
+
 class FirstViewController: UIViewController, UITextFieldDelegate, MKMapViewDelegate, CLLocationManagerDelegate, MyCalloutViewDelegate {
   
   var locationManager: CLLocationManager!
@@ -30,9 +47,10 @@ class FirstViewController: UIViewController, UITextFieldDelegate, MKMapViewDeleg
     setupLocationManager()
     getLocation()
     mapview.showsUserLocation = true
+    self.navigationItem.titleView = UIImageView(image:UIImage(named:"title")?.resize(size: CGSize(width: 100, height: 40)))
   }
   
-  override func viewWillAppear(_ animated: Bool) {
+  override func viewDidAppear(_ animated: Bool) {
     self.mapview.region = MKCoordinateRegionMakeWithDistance(mapview.userLocation.coordinate, 500.0, 500.0)
   }
   
@@ -128,7 +146,5 @@ class FirstViewController: UIViewController, UITextFieldDelegate, MKMapViewDeleg
     self.mapview.region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 500.0, 500.0)
     
   }
-
-
 }
 
